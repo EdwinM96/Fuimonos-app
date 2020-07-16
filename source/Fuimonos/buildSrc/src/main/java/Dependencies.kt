@@ -16,6 +16,8 @@ object Versions {
 
     const val lifecycle = "2.2.0"
 
+    const val googleMaterial = "1.1.0"
+
     const val timber = "4.7.1"
 
     const val junit = "4.12"
@@ -47,6 +49,10 @@ object KoinLibs {
     const val koinCore = "org.koin:koin-core:${Versions.koin}"
     const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
     const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
+}
+
+object GoogleLibs {
+    const val material = "com.google.android.material:material:${Versions.googleMaterial}"
 }
 
 object TestLibs {

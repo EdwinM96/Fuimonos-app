@@ -50,6 +50,8 @@ dependencies {
     implementation KoinLibs.koinAndroid
     implementation KoinLibs.koinViewModel
 
+    implementation GoogleLibs.material
+
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.androidTest
     androidTestImplementation TestLibs.espresso
