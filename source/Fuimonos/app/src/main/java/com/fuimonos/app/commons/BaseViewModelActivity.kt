@@ -18,7 +18,7 @@ abstract class BaseViewModelActivity<VM: BaseViewModel> : AppCompatActivity() {
         setupSubscription()
     }
 
-    protected fun setupSubscription() {
+    protected open fun setupSubscription() {
         mViewModel.toast.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })

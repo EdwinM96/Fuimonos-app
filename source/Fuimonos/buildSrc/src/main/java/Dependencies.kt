@@ -8,6 +8,7 @@ object Versions {
 
     const val kotlin = "1.3.72"
     const val ktx = "1.3.0"
+    const val kotlinCoroutines = "1.3.8"
 
     const val appcompat = "1.1.0"
     const val constraintlayout = "1.1.3"
@@ -29,6 +30,9 @@ object Libs {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val dataBindingCompiler = "com.android.databinding:compiler:${Versions.gradle}"
+
+    const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
+    const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }

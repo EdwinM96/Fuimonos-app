@@ -36,6 +36,8 @@ dependencies {
     implementation Libs.kotlin
     implementation Libs.ktx
     implementation Libs.timber
+    implementation Libs.coroutinesCore
+    implementation Libs.coroutinesAndroid
     kapt Libs.dataBindingCompiler
 
     implementation SupportLibs.appcompat

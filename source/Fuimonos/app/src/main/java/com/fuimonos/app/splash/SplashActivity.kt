@@ -1,8 +1,11 @@
 package com.fuimonos.app.splash
 
 import android.os.Bundle
+import android.view.View
+import androidx.lifecycle.Observer
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BaseViewModelActivity
+import kotlinx.android.synthetic.main.act_splash.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
@@ -17,6 +20,23 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
 
     private fun setup() {
         mViewModel.start()
+    }
+
+    override fun setupSubscription() {
+        super.setupSubscription()
+        mViewModel.onShowProgress.observe(this, Observer {
+            showProgress(it)
+        })
+    }
+
+    private fun showProgress(enable: Boolean) {
+        val visibility = if(enable) {
+            View.VISIBLE
+        } else {
+            View.GONE
+        }
+
+        progressBar.visibility = visibility
     }
 
 }
