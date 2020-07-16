@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compileSdkVersion
@@ -22,6 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
 }
 
 dependencies {
@@ -30,9 +36,15 @@ dependencies {
     implementation Libs.kotlin
     implementation Libs.ktx
     implementation Libs.timber
+    kapt Libs.dataBindingCompiler
 
     implementation SupportLibs.appcompat
     implementation SupportLibs.constraintlayout
+
+    implementation LifecycleLibs.viewModel
+    implementation LifecycleLibs.liveData
+    implementation LifecycleLibs.viewModelKtx
+    implementation LifecycleLibs.lifecycleExtensions
 
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.androidTest
