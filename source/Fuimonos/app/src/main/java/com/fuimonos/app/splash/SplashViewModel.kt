@@ -1,11 +1,8 @@
 package com.fuimonos.app.splash
 
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import com.fuimonos.app.commons.BaseViewModel
 
-class SplashViewModel : ViewModel() {
-
-    val toast = MutableLiveData<String>()
+class SplashViewModel : BaseViewModel() {
 
     fun start() {
         toast.value = "Prueba de LiveData y Koin"
