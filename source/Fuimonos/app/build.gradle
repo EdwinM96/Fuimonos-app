@@ -46,6 +46,10 @@ dependencies {
     implementation LifecycleLibs.viewModelKtx
     implementation LifecycleLibs.lifecycleExtensions
 
+    implementation KoinLibs.koinCore
+    implementation KoinLibs.koinAndroid
+    implementation KoinLibs.koinViewModel
+
     testImplementation TestLibs.junit
     androidTestImplementation TestLibs.androidTest
     androidTestImplementation TestLibs.espresso

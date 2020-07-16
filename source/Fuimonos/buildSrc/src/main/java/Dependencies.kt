@@ -12,6 +12,8 @@ object Versions {
     const val appcompat = "1.1.0"
     const val constraintlayout = "1.1.3"
 
+    const val koin = "2.1.6"
+
     const val lifecycle = "2.2.0"
 
     const val timber = "4.7.1"
@@ -39,6 +41,12 @@ object LifecycleLibs {
     const val liveData = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
     const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+}
+
+object KoinLibs {
+    const val koinCore = "org.koin:koin-core:${Versions.koin}"
+    const val koinAndroid = "org.koin:koin-android:${Versions.koin}"
+    const val koinViewModel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
 }
 
 object TestLibs {
