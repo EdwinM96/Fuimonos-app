@@ -34,6 +34,7 @@
             android:hint="@string/email"
             app:errorEnabled="true"
             app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintVertical_bias=".3"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTitle"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,6 +46,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
                 android:imeOptions="actionNext"
+                android:paddingStart="@dimen/space_default"
+                android:paddingEnd="@dimen/space_default"
+                android:paddingBottom="@dimen/space_4n"
                 android:text="@={viewModel.email}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -71,6 +75,9 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"
+                android:paddingStart="@dimen/space_default"
+                android:paddingEnd="@dimen/space_default"
+                android:paddingBottom="@dimen/space_4n"
                 android:text="@={viewModel.password}"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -126,23 +133,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvWithoutAccount"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/signupBarrier"/>
-
-        <androidx.constraintlayout.widget.Barrier
-            android:id="@+id/signupBarrier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:barrierDirection="top"
-            app:constraint_referenced_ids="btnFuimonosSignUp"/>
+            app:layout_constraintBottom_toBottomOf="parent" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/btnFuimonosSignUp"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            android:layout_marginBottom="@dimen/space_4x"
-            android:background="?attr/selectableItemBackground"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:focusable="true"
             app:srcCompat="@drawable/ic_app_logo"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRegisterNewAccount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
