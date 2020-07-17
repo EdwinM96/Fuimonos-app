@@ -10,4 +10,10 @@
     <string name="val_empty_email">Necesitamos tu correo</string>
     <string name="val_invalid_email">Este correo no es válido</string>
     <string name="val_emtpy_password">Necesitamos tu contraseña</string>
+    <string name="welcome">¡Bienvenido!</string>
+    <string name="name">Nombre</string>
+    <string name="email_required">Correo electrónico*</string>
+    <string name="password_required">Contraseña*</string>
+    <string name="birthday">Fecha de nacimiento</string>
+    <string name="phonenumber_required">Número de celular*</string>
 </resources>

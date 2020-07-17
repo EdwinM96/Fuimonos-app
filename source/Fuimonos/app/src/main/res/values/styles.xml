@@ -20,6 +20,12 @@
         <item name="android:textColor">@color/purple</item>
     </style>
 
+    <style name="EditTextCompactSpacingStyle">
+        <item name="android:paddingStart">@dimen/space_default</item>
+        <item name="android:paddingEnd">@dimen/space_default</item>
+        <item name="android:paddingBottom">@dimen/space_4n</item>
+    </style>
+
     <style name="PrimaryButtonStyle">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Large</item>
         <item name="android:includeFontPadding">false</item>
