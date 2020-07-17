@@ -7,4 +7,7 @@
     <string name="login">Entrar</string>
     <string name="without_account_yet">¿Aún no\ntenés una cuenta?</string>
     <string name="register_new_account">Registra una cuenta nueva</string>
+    <string name="val_empty_email">Necesitamos tu correo</string>
+    <string name="val_invalid_email">Este correo no es válido</string>
+    <string name="val_emtpy_password">Necesitamos tu contraseña</string>
 </resources>
