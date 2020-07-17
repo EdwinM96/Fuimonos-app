@@ -83,10 +83,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:background="?attr/selectableItemBackground"
             android:id="@+id/tvForgotPassword"
+            android:background="?attr/selectableItemBackground"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
             android:layout_marginTop="@dimen/space_default"
             android:text="@string/forgot_password"
             android:paddingTop="@dimen/space_default"
