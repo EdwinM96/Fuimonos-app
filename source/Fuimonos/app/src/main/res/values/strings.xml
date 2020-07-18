@@ -11,9 +11,11 @@
     <string name="val_invalid_email">Este correo no es válido</string>
     <string name="val_emtpy_password">Necesitamos tu contraseña</string>
     <string name="welcome">¡Bienvenido!</string>
-    <string name="name">Nombre</string>
+    <string name="name_required">Nombre*</string>
     <string name="email_required">Correo electrónico*</string>
     <string name="password_required">Contraseña*</string>
     <string name="birthday">Fecha de nacimiento</string>
     <string name="phonenumber_required">Número de celular*</string>
+    <string name="sign_me_up">¡Registrame!</string>
+    <string name="last_name_required">Apellido*</string>
 </resources>

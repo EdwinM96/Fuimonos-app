@@ -1,5 +1,6 @@
 package com.fuimonos.app.login
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
@@ -9,6 +10,7 @@ import com.fuimonos.app.R
 import com.fuimonos.app.commons.BindableVMActivity
 import com.fuimonos.app.databinding.ActLoginBinding
 import com.fuimonos.app.login.LoginValidation.*
+import com.fuimonos.app.signup.SignUpActivity
 import kotlinx.android.synthetic.main.act_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -33,6 +35,14 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
         mViewModel.onLoginSucess.observe(this, Observer {
             Toast.makeText(this, "Datos válidos", Toast.LENGTH_LONG).show()
         })
+        mViewModel.onSignUp.observe(this, Observer {
+            showSignUp()
+        })
+    }
+
+    private fun showSignUp() {
+        val intent = Intent(this, SignUpActivity::class.java)
+        startActivity(intent)
     }
 
     private fun setup() {

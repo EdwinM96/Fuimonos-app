@@ -12,6 +12,7 @@ class LoginViewModel : BaseViewModel() {
     val password = MutableLiveData<String>()
     val onClearValidations = SingleLiveEvent<Nothing>()
     val onShowValidations = SingleLiveEvent<List<LoginValidation>>()
+    val onSignUp = SingleLiveEvent<Nothing>()
     val onLoginSucess = SingleLiveEvent<Nothing>()
 
     fun onLogin() {
@@ -25,6 +26,10 @@ class LoginViewModel : BaseViewModel() {
 
         onLoginSucess.call()
 
+    }
+
+    fun onSignUp() {
+        onSignUp.call()
     }
 
     fun onForgotPassword() {
