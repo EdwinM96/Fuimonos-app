@@ -10,6 +10,7 @@ import com.fuimonos.app.R
 import com.fuimonos.app.commons.BindableVMActivity
 import com.fuimonos.app.databinding.ActLoginBinding
 import com.fuimonos.app.login.LoginValidation.*
+import com.fuimonos.app.recoverpassword.RecoverPasswordActivity
 import com.fuimonos.app.signup.SignUpActivity
 import kotlinx.android.synthetic.main.act_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,6 +38,9 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
         })
         mViewModel.onSignUp.observe(this, Observer {
             showSignUp()
+        })
+        mViewModel.onForgotPassword.observe(this, Observer {
+            showRecoverPassword()
         })
     }
 
@@ -68,6 +72,11 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
                 EMTPY_PASSWORD -> inputPassword.error = getString(R.string.val_empty_password)
             }
         }
+    }
+
+    private fun showRecoverPassword() {
+        val intent = Intent(this, RecoverPasswordActivity::class.java)
+        startActivity(intent)
     }
 
 }

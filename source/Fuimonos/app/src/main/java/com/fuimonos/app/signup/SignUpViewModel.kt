@@ -26,6 +26,7 @@ class SignUpViewModel: BaseViewModel() {
             onShowValidations.value = validations
             return
         }
+        toast.value = "Datos válidos"
     }
 
     fun onPickProfilePhoto() {

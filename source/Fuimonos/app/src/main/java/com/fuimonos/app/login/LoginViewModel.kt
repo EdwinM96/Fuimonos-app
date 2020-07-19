@@ -13,6 +13,7 @@ class LoginViewModel : BaseViewModel() {
     val onClearValidations = SingleLiveEvent<Nothing>()
     val onShowValidations = SingleLiveEvent<List<LoginValidation>>()
     val onSignUp = SingleLiveEvent<Nothing>()
+    val onForgotPassword = SingleLiveEvent<Nothing>()
     val onLoginSucess = SingleLiveEvent<Nothing>()
 
     fun onLogin() {
@@ -33,7 +34,7 @@ class LoginViewModel : BaseViewModel() {
     }
 
     fun onForgotPassword() {
-        toast.value = "En construcción"
+        onForgotPassword.call()
     }
 
     private inline fun ifThereAreValidationsDo(block: (List<LoginValidation>) -> Unit) {
