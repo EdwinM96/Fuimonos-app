@@ -40,6 +40,8 @@ dependencies {
     implementation Libs.timber
     implementation Libs.coroutinesCore
     implementation Libs.coroutinesAndroid
+    implementation Libs.imagePicker
+    implementation Libs.picasso
     kapt Libs.dataBindingCompiler
 
     implementation SupportLibs.appcompat

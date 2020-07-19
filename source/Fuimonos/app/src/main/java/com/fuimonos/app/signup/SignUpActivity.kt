@@ -1,12 +1,17 @@
 package com.fuimonos.app.signup
 
+import android.app.Activity
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BindableVMActivity
+import com.fuimonos.app.commons.CircleTransform
 import com.fuimonos.app.databinding.ActSignupBinding
 import com.fuimonos.app.signup.SignUpValidation.*
+import com.github.dhaval2404.imagepicker.ImagePicker
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.act_signup.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.text.SimpleDateFormat
@@ -23,6 +28,15 @@ class SignUpActivity : BindableVMActivity<SignUpViewModel, ActSignupBinding>() {
         setup()
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(resultCode != Activity.RESULT_OK) { return }
+        data ?: return
+        if(requestCode == PROFILE_PHOTO_REQ_CODE) {
+            handleProfilePhotoFile(data)
+        }
+    }
+
     override fun setupSubscription() {
         super.setupSubscription()
         mViewModel.onClearValidations.observe(this, Observer {
@@ -31,6 +45,32 @@ class SignUpActivity : BindableVMActivity<SignUpViewModel, ActSignupBinding>() {
         mViewModel.onShowValidations.observe(this, Observer { validations ->
             showValidations(validations)
         })
+        mViewModel.onPickProfilePhoto.observe(this, Observer {
+            pickProfilePhoto()
+        })
+    }
+
+    private fun pickProfilePhoto() {
+        ImagePicker.with(this)
+            .cropSquare()
+            .galleryOnly()
+            .galleryMimeTypes(arrayOf(
+                "image/png",
+                "image/jpg",
+                "image/jpeg"
+            ))
+            .maxResultSize(512,512)
+            .start(PROFILE_PHOTO_REQ_CODE)
+    }
+
+    private fun handleProfilePhotoFile(data: Intent) {
+        val profilePhotoFile = ImagePicker.getFile(data)
+        mViewModel.profilePhotoFile = profilePhotoFile
+        profilePhotoFile ?: return
+        Picasso.get()
+            .load(profilePhotoFile)
+            .transform(CircleTransform())
+            .into(ivProfilePhoto)
     }
 
     private fun setup() {
@@ -79,6 +119,10 @@ class SignUpActivity : BindableVMActivity<SignUpViewModel, ActSignupBinding>() {
                 EMPTY_PHONE_NUMBER -> inputPhoneNumber.error = getString(R.string.val_empty_phone_number)
             }
         }
+    }
+
+    companion object {
+        private const val PROFILE_PHOTO_REQ_CODE = 1
     }
 
 }

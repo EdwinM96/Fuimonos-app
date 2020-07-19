@@ -5,9 +5,11 @@ import com.fuimonos.app.commons.BaseViewModel
 import com.fuimonos.app.commons.SingleLiveEvent
 import com.fuimonos.app.commons.Validator
 import com.fuimonos.app.ext.isValidEmail
+import java.io.File
 
 class SignUpViewModel: BaseViewModel() {
 
+    var profilePhotoFile: File? = null
     val name = MutableLiveData<String>()
     val lastName = MutableLiveData<String>()
     val email = MutableLiveData<String>()
@@ -16,6 +18,7 @@ class SignUpViewModel: BaseViewModel() {
     val phoneNumber = MutableLiveData<String>()
     val onClearValidations = SingleLiveEvent<Nothing>()
     val onShowValidations = SingleLiveEvent<List<SignUpValidation>>()
+    val onPickProfilePhoto = SingleLiveEvent<Nothing>()
 
     fun onSignUp() {
         onClearValidations.call()
@@ -23,6 +26,10 @@ class SignUpViewModel: BaseViewModel() {
             onShowValidations.value = validations
             return
         }
+    }
+
+    fun onPickProfilePhoto() {
+        onPickProfilePhoto.call()
     }
 
     private inline fun ifThereAreValidationsDo(block: (List<SignUpValidation>) -> Unit) {

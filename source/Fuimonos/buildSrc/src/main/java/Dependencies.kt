@@ -19,6 +19,9 @@ object Versions {
 
     const val googleMaterial = "1.1.0"
 
+    const val imagePicker = "1.7.3"
+    const val picasso = "2.71828"
+
     const val timber = "4.7.1"
 
     const val junit = "4.12"
@@ -33,6 +36,9 @@ object Libs {
 
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"
+
+    const val imagePicker = "com.github.dhaval2404:imagepicker:${Versions.imagePicker}"
+    const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }
