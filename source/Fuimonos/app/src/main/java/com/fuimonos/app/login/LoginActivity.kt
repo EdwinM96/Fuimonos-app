@@ -65,7 +65,7 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
             when(validation) {
                 EMPTY_EMAIL    -> inputEmail.error = getString(R.string.val_empty_email)
                 INVALID_EMAIL  -> inputEmail.error = getString(R.string.val_invalid_email)
-                EMTPY_PASSWORD -> inputPassword.error = getString(R.string.val_emtpy_password)
+                EMTPY_PASSWORD -> inputPassword.error = getString(R.string.val_empty_password)
             }
         }
     }

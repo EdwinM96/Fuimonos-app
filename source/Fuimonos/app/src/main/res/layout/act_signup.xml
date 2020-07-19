@@ -76,12 +76,13 @@
                 app:layout_constraintBottom_toTopOf="@+id/inputLastName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    style="@style/EditTextCompactSpacingStyle"
                     android:id="@+id/etName"
+                    style="@style/EditTextCompactSpacingStyle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext" />
+                    android:imeOptions="actionNext"
+                    android:inputType="textPersonName"
+                    android:text="@={viewModel.name}" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -105,8 +106,9 @@
                     android:id="@+id/etLastName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext" />
+                    android:inputType="textPersonName"
+                    android:imeOptions="actionNext"
+                    android:text="@={viewModel.lastName}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +133,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext" />
+                    android:imeOptions="actionNext"
+                    android:text="@={viewModel.email}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,6 +147,7 @@
                 android:layout_marginTop="@dimen/space_2x"
                 app:boxBackgroundColor="@color/opaquePurple"
                 android:hint="@string/password_required"
+                app:passwordToggleEnabled="true"
                 app:layout_constraintVertical_chainStyle="packed"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/inputEmail"
@@ -155,7 +159,8 @@
                     android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.password}"
                     android:imeOptions="actionNext" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -178,10 +183,13 @@
                 <com.google.android.material.textfield.TextInputEditText
                     style="@style/EditTextCompactSpacingStyle"
                     android:id="@+id/etBirthday"
+                    android:clickable="true"
+                    android:focusable="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext" />
+                    android:inputType="date"
+                    android:imeOptions="actionNext"
+                    android:text="@={viewModel.birthday}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -205,8 +213,9 @@
                     android:id="@+id/etPhoneNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"
-                    android:imeOptions="actionNext" />
+                    android:inputType="phone"
+                    android:imeOptions="actionDone"
+                    android:text="@={viewModel.phoneNumber}"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -218,10 +227,11 @@
                 android:layout_marginTop="@dimen/space_2x"
                 android:layout_marginBottom="@dimen/space_2x"
                 android:text="@string/sign_me_up"
+                android:onClick="@{ () -> viewModel.onSignUp() }"
                 app:layout_constraintVertical_bias="0"
                 app:layout_constraintTop_toBottomOf="@+id/inputPhoneNumber"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                app:layout_constraintBottom_toBottomOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
