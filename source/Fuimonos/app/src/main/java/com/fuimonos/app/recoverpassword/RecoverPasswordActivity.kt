@@ -1,5 +1,6 @@
 package com.fuimonos.app.recoverpassword
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
@@ -41,8 +42,8 @@ class RecoverPasswordActivity : BindableVMActivity<RecoverPasswordViewModel, Act
     }
 
     private fun showSuccessMessage() {
-        //TODO: PRESENTAR PANTALLA DE LISTO
-        Toast.makeText(this, "Revisar correo", Toast.LENGTH_LONG).show()
+        val intent = Intent(this, RecPasswordSuccessActivity::class.java)
+        startActivity(intent)
     }
 
 }

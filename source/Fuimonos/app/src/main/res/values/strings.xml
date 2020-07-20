@@ -24,4 +24,7 @@
     <string name="recover_your_password">Recuperá\ntu contraseña</string>
     <string name="recovery_description">Confirmá tu correo electrónico y te enviaremos una nueva contraseña.</string>
     <string name="recover_password">Recuperar contraseña</string>
+    <string name="ready">¡Listo!</string>
+    <string name="recovery_success_description">No hay más que hacer aquí, ahora revisá tu correo electrónico.</string>
+    <string name="login_app">Iniciar sesión</string>
 </resources>
