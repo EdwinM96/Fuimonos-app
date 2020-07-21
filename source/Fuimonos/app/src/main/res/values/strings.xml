@@ -28,4 +28,10 @@
     <string name="recovery_success_description">No hay más que hacer aquí, ahora revisá tu correo electrónico.</string>
     <string name="login_app">Iniciar sesión</string>
     <string name="come_back">Regresar</string>
+    <string name="no_internet_dialog_title">Elon, tenemos\nun problema...</string>
+    <string name="no_internet_dialog_main_description">No tenés conexión a internet</string>
+    <string name="no_internet_dialog_secondary_description">Por favor revisa tu conexión</string>
+    <string name="unknown_error_dialog_title">Uhhh...</string>
+    <string name="unknown_error_dialog_mainDescription">Pasó algo desconocido</string>
+    <string name="unknown_error_dialog_secondaryDescription">Ocurrió un error inesperado, contáctese con nosotros para darle soporte</string>
 </resources>

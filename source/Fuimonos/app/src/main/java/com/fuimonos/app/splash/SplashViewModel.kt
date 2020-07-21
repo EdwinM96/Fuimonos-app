@@ -10,7 +10,7 @@ class SplashViewModel : BaseViewModel() {
     val onShowMainScreen = SingleLiveEvent<Nothing>()
 
     fun start() {
-        launchCoroutines {
+        launchCoroutines(checkInternet = false) {
             //TODO: AQUI SE DEBE VALIDAR SI HAY UNA SESIÓN ACTIVA ENVIAR A LOGIN O PRINCIPAL
             delay(3000)
             onShowProgress.value = false
