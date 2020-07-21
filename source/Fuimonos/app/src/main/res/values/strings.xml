@@ -34,4 +34,9 @@
     <string name="unknown_error_dialog_title">Uhhh...</string>
     <string name="unknown_error_dialog_mainDescription">Pasó algo desconocido</string>
     <string name="unknown_error_dialog_secondaryDescription">Ocurrió un error inesperado, contáctese con nosotros para darle soporte</string>
+    <string name="what_will_you_eat_today">¿Qué vas\na comer hoy?</string>
+    <string name="search">Buscar</string>
+    <string name="home">Inicio</string>
+    <string name="shopping_cart">Carrito de compra</string>
+    <string name="options">Opciones</string>
 </resources>

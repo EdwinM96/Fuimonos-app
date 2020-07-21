@@ -35,6 +35,9 @@
         <activity android:name=".recoverpassword.RecPasswordSuccessActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".appnavigator.AppNavigatorActivity"
+            android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

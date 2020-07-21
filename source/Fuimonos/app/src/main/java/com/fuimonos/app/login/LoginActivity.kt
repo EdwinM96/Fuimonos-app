@@ -4,12 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
+import com.fuimonos.app.appnavigator.AppNavigatorActivity
 import com.fuimonos.app.commons.BindableVMActivity
 import com.fuimonos.app.databinding.ActLoginBinding
-import com.fuimonos.app.helpers.DialogHelper
 import com.fuimonos.app.login.LoginValidation.*
 import com.fuimonos.app.recoverpassword.RecoverPasswordActivity
 import com.fuimonos.app.signup.SignUpActivity
@@ -35,7 +34,7 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
             showValidations(validations)
         })
         mViewModel.onLoginSucess.observe(this, Observer {
-            Toast.makeText(this, "Datos válidos", Toast.LENGTH_LONG).show()
+            showMainScreen()
         })
         mViewModel.onSignUp.observe(this, Observer {
             showSignUp()
@@ -77,6 +76,11 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
 
     private fun showRecoverPassword() {
         val intent = Intent(this, RecoverPasswordActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun showMainScreen() {
+        val intent = Intent(this, AppNavigatorActivity::class.java)
         startActivity(intent)
     }
 
