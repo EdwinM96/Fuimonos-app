@@ -27,4 +27,5 @@
     <string name="ready">¡Listo!</string>
     <string name="recovery_success_description">No hay más que hacer aquí, ahora revisá tu correo electrónico.</string>
     <string name="login_app">Iniciar sesión</string>
+    <string name="come_back">Regresar</string>
 </resources>

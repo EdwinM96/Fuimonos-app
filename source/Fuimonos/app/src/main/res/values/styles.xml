@@ -7,6 +7,7 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/opaquePurple</item>
         <item name="fontFamily">@font/comfortaa_family</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.App.MaterialAlertDialog</item>
     </style>
 
     <style name="AppTheme.NoActionBar" parent="AppTheme">
@@ -17,6 +18,23 @@
     <style name="TextViewTitleStyle">
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
         <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+    <style name="DialogTitleStyle" parent="TextViewTitleStyle">
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
+    </style>
+
+    <style name="DialogTitleSmallAppearance" parent="TextAppearance.MaterialComponents.Headline5">
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textColor">@color/purple</item>
+    </style>
+
+    <style name="DialogTitleBigAppearance" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
         <item name="android:textColor">@color/purple</item>
     </style>
 
@@ -56,6 +74,26 @@
         <item name="cornerSizeBottomLeft">24dp</item>
         <item name="cornerSizeTopRight">0dp</item>
         <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+    <style name="DialogSingleOptionButtonStyle" parent="MainButtonStyle">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
+        <item name="android:paddingStart">@dimen/space_4x</item>
+        <item name="android:paddingEnd">@dimen/space_4x</item>
+        <item name="cornerRadius">18dp</item>
+    </style>
+
+    <style name="ThemeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="alertDialogStyle">@style/MaterialAlertDialog.App</item>
+    </style>
+
+    <style name="MaterialAlertDialog.App" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">40dp</item>
     </style>
 
 </resources>

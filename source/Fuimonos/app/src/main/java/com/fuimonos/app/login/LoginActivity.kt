@@ -9,6 +9,7 @@ import androidx.lifecycle.Observer
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BindableVMActivity
 import com.fuimonos.app.databinding.ActLoginBinding
+import com.fuimonos.app.helpers.DialogHelper
 import com.fuimonos.app.login.LoginValidation.*
 import com.fuimonos.app.recoverpassword.RecoverPasswordActivity
 import com.fuimonos.app.signup.SignUpActivity
