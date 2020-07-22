@@ -13,6 +13,8 @@ object Versions {
     const val appcompat = "1.1.0"
     const val constraintlayout = "1.1.3"
 
+    const val navigation = "2.3.0"
+
     const val koin = "2.1.6"
 
     const val lifecycle = "2.2.0"
@@ -53,6 +55,12 @@ object LifecycleLibs {
     const val liveData = "androidx.lifecycle:lifecycle-livedata:${Versions.lifecycle}"
     const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifecycle}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle}"
+}
+
+object NavigationLibs {
+    const val navigationRuntime = "androidx.navigation:navigation-runtime-ktx:${Versions.navigation}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
+    const val navigationUI = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
 }
 
 object KoinLibs {

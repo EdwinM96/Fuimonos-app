@@ -26,6 +26,14 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     dataBinding {
         enabled = true
     }
@@ -51,6 +59,10 @@ dependencies {
     implementation LifecycleLibs.liveData
     implementation LifecycleLibs.viewModelKtx
     implementation LifecycleLibs.lifecycleExtensions
+
+    implementation NavigationLibs.navigationRuntime
+    implementation NavigationLibs.navigationFragment
+    implementation NavigationLibs.navigationUI
 
     implementation KoinLibs.koinCore
     implementation KoinLibs.koinAndroid
