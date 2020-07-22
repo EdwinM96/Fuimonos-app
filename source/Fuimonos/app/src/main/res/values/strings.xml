@@ -39,4 +39,6 @@
     <string name="home">Inicio</string>
     <string name="shopping_cart">Carrito de compra</string>
     <string name="options">Opciones</string>
+    <string name="x_restaurants">%d restaurantes</string>
+    <string name="minimal_mount">Monto\nmínimo</string>
 </resources>

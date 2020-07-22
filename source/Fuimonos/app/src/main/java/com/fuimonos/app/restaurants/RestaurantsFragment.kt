@@ -5,17 +5,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BaseViewModelFragment
 import com.fuimonos.app.databinding.FrgRestaurantsBinding
 import com.fuimonos.app.models.FoodCategory
 import com.fuimonos.app.models.RestaurantsHeaded
+import kotlinx.android.synthetic.main.frg_restaurants.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RestaurantsFragment : BaseViewModelFragment<RestaurantsViewModel, FrgRestaurantsBinding>() {
 
     override val mViewModel: RestaurantsViewModel by viewModel()
     override val contentViewLayoutRes = R.layout.frg_restaurants
+    lateinit var categoriesRestaurantsAdapter: CategoriesRestaurantsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,13 +34,19 @@ class RestaurantsFragment : BaseViewModelFragment<RestaurantsViewModel, FrgResta
 
     private fun setup() {
         mViewModel.start()
+        setupRecycleViewRestaurants()
+    }
+
+    private fun setupRecycleViewRestaurants() {
+        categoriesRestaurantsAdapter = CategoriesRestaurantsAdapter(mViewModel)
+        rvRestaurants.layoutManager = LinearLayoutManager(context)
+        rvRestaurants.adapter = categoriesRestaurantsAdapter
     }
 
     private fun showCategoriesRestaurants(categories: List<FoodCategory>,
                                           restaurants: List<RestaurantsHeaded>) {
-
-        //TODO: CONFIGURAR RECYCLERVIEW
-
+        categoriesRestaurantsAdapter.itemCategories = categories
+        categoriesRestaurantsAdapter.itemRestaurantsHeaded = restaurants
     }
 
     companion object {

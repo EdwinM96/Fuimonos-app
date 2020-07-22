@@ -19,6 +19,7 @@
         <item name="android:textAppearance">@style/TextAppearance.MaterialComponents.Headline4</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/purple</item>
+        <item name="android:includeFontPadding">false</item>
     </style>
 
     <style name="DialogTitleStyle" parent="TextViewTitleStyle">
