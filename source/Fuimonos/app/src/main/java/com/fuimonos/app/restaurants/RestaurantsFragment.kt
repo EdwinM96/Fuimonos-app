@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BaseViewModelFragment
 import com.fuimonos.app.databinding.FrgRestaurantsBinding
 import com.fuimonos.app.models.FoodCategory
+import com.fuimonos.app.models.Restaurant
 import com.fuimonos.app.models.RestaurantsHeaded
+import com.fuimonos.app.restaurantmenu.RestaurantMenuFragment.Companion.RESTAURANT_ARG
 import kotlinx.android.synthetic.main.frg_restaurants.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -27,8 +31,11 @@ class RestaurantsFragment : BaseViewModelFragment<RestaurantsViewModel, FrgResta
 
     override fun setupVMSubscription() {
         super.setupVMSubscription()
-        mViewModel.onShowCategoriesRestaurants.observe(this, Observer { pair ->
+        mViewModel.onShowCategoriesRestaurants.observe(viewLifecycleOwner, Observer { pair ->
             showCategoriesRestaurants(pair.first, pair.second)
+        })
+        mViewModel.onRestaurantSelected.observe(viewLifecycleOwner, Observer { restaurant ->
+            showRestaurantMenu(restaurant)
         })
     }
 
@@ -47,6 +54,12 @@ class RestaurantsFragment : BaseViewModelFragment<RestaurantsViewModel, FrgResta
                                           restaurants: List<RestaurantsHeaded>) {
         categoriesRestaurantsAdapter.itemCategories = categories
         categoriesRestaurantsAdapter.itemRestaurantsHeaded = restaurants
+    }
+
+    private fun showRestaurantMenu(restaurant: Restaurant) {
+        val bundleArgs = bundleOf(RESTAURANT_ARG to restaurant)
+        findNavController().navigate(R.id.action_restaurants_to_restaurant_menu,
+                                     bundleArgs)
     }
 
     companion object {

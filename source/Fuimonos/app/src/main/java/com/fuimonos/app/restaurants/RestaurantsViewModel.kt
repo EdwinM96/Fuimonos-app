@@ -2,6 +2,7 @@ package com.fuimonos.app.restaurants
 
 import androidx.lifecycle.MutableLiveData
 import com.fuimonos.app.commons.BaseViewModel
+import com.fuimonos.app.commons.SingleLiveEvent
 import com.fuimonos.app.models.FoodCategory
 import com.fuimonos.app.models.Restaurant
 import com.fuimonos.app.models.RestaurantsHeaded
@@ -9,6 +10,7 @@ import com.fuimonos.app.models.RestaurantsHeaded
 class RestaurantsViewModel : BaseViewModel() {
 
     val onShowCategoriesRestaurants = MutableLiveData<Pair<List<FoodCategory>, List<RestaurantsHeaded>>>()
+    val onRestaurantSelected = SingleLiveEvent<Restaurant>()
 
     fun start() {
         val categories = listOf(
@@ -56,7 +58,7 @@ class RestaurantsViewModel : BaseViewModel() {
     }
 
     fun onSelectRestaurant(restaurant: Restaurant) {
-        toast.value = restaurant.name
+        onRestaurantSelected.value = restaurant
     }
 
 }

@@ -3,12 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/menuHome"
-    app:startDestination="@+id/home">
+    app:startDestination="@+id/restaurants">
 
     <fragment
-        android:id="@+id/home"
+        android:id="@+id/restaurants"
         android:name="com.fuimonos.app.restaurants.RestaurantsFragment"
         android:label="home"
-        tools:layout="@layout/frg_restaurants"/>
+        tools:layout="@layout/frg_restaurants" >
+
+        <action
+            android:id="@+id/action_restaurants_to_restaurant_menu"
+            app:destination="@+id/restaurantMenu"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/restaurantMenu"
+        android:name="com.fuimonos.app.restaurantmenu.RestaurantMenuFragment"
+        android:label="menu restaurante"
+        tools:layout="@layout/frg_restaurant_menu">
+
+        <argument
+            android:name="RESTAURANT"
+            app:argType="com.fuimonos.app.models.Restaurant"/>
+
+    </fragment>
 
 </navigation>
