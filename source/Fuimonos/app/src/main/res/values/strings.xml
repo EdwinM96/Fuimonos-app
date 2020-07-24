@@ -43,4 +43,9 @@
     <string name="minimal_mount">Monto\nmínimo</string>
     <string name="add">Agregar</string>
     <string name="price_x">\u0024%.2f</string>
+    <string name="select_complements">Seleccioná complementos</string>
+    <string name="minus_sign">—</string>
+    <string name="plus_sign">+</string>
+    <string name="initial_number_picker_value">1</string>
+    <string name="add_to_shopping_cart">Agregar a carrito</string>
 </resources>

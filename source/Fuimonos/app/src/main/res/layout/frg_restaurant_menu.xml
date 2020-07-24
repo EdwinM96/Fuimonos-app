@@ -82,7 +82,7 @@
             android:layout_marginTop="@dimen/space_2x"
             android:layout_marginStart="@dimen/space_5x"
             android:layout_marginEnd="@dimen/space_5x"
-            android:background="#D1ACC8"
+            android:background="@color/separatorColor"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/menuTab"
             app:layout_constraintEnd_toEndOf="parent"/>

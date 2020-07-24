@@ -2,13 +2,17 @@ package com.fuimonos.app.restaurantmenu
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuimonos.app.R
+import com.fuimonos.app.commons.BackViewModelFragment
 import com.fuimonos.app.commons.BaseViewModelFragment
 import com.fuimonos.app.commons.picasso.CircleTransform
 import com.fuimonos.app.databinding.FrgRestaurantMenuBinding
 import com.fuimonos.app.ext.getArg
+import com.fuimonos.app.foodcomplements.FoodComplementsFragment.Companion.FOOD_ARG
 import com.fuimonos.app.models.Food
 import com.fuimonos.app.models.Menu
 import com.fuimonos.app.models.Restaurant
@@ -18,7 +22,7 @@ import kotlinx.android.synthetic.main.frg_restaurant_menu.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class RestaurantMenuFragment : BaseViewModelFragment<RestaurantMenuViewModel, FrgRestaurantMenuBinding>() {
+class RestaurantMenuFragment : BackViewModelFragment<RestaurantMenuViewModel, FrgRestaurantMenuBinding>() {
 
     private val restaurant by getArg<Restaurant>(RESTAURANT_ARG)
 
@@ -42,20 +46,17 @@ class RestaurantMenuFragment : BaseViewModelFragment<RestaurantMenuViewModel, Fr
         mViewModel.onShowFoods.observe(viewLifecycleOwner, Observer { foods ->
             showFoods(foods)
         })
+        mViewModel.onShowFoodComplements.observe(viewLifecycleOwner, Observer { food ->
+            showFoodComplements(food)
+        })
     }
 
     private fun setup() {
         mViewModel.start()
-        setupBack()
         setupMenuTabs()
         setupFoodRecyclerView()
     }
 
-    private fun setupBack() {
-        ivBack.setOnClickListener {
-            (activity as AppCompatActivity).onBackPressed()
-        }
-    }
 
     private fun setupRestaurantLogo(logo: String?) {
         Picasso.get()
@@ -98,6 +99,12 @@ class RestaurantMenuFragment : BaseViewModelFragment<RestaurantMenuViewModel, Fr
 
     private fun showFoods(foods: List<Food>) {
         foodsAdapter.items = foods
+    }
+
+    private fun showFoodComplements(food: Food) {
+        val bundleArgs = bundleOf(FOOD_ARG to food)
+        findNavController().navigate(R.id.action_menu_to_food_complement,
+                                     bundleArgs)
     }
 
     companion object {

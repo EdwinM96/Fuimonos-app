@@ -4,6 +4,7 @@ import android.util.SparseArray
 import androidx.core.util.set
 import androidx.lifecycle.MutableLiveData
 import com.fuimonos.app.commons.BaseViewModel
+import com.fuimonos.app.commons.SingleLiveEvent
 import com.fuimonos.app.models.Food
 import com.fuimonos.app.models.Menu
 import com.fuimonos.app.models.Restaurant
@@ -13,6 +14,7 @@ class RestaurantMenuViewModel(val restaurant: Restaurant) : BaseViewModel() {
     val onShowRestaurantLogo = MutableLiveData<String>()
     val onShowMenuTabs = MutableLiveData<List<Menu>>()
     val onShowFoods = MutableLiveData<List<Food>>()
+    val onShowFoodComplements = SingleLiveEvent<Food>()
 
     private lateinit var menus: List<Menu>
     private val foodsByMenuId = SparseArray<List<Food>>()
@@ -73,7 +75,7 @@ class RestaurantMenuViewModel(val restaurant: Restaurant) : BaseViewModel() {
     }
 
     fun onSelectFood(food: Food) {
-        toast.value = food.name
+        onShowFoodComplements.value = food
     }
 
     fun requestFoodFrom(menuId: Int) {

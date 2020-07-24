@@ -27,6 +27,22 @@
             android:name="RESTAURANT"
             app:argType="com.fuimonos.app.models.Restaurant"/>
 
+        <action
+            android:id="@+id/action_menu_to_food_complement"
+            app:destination="@+id/foodComplements"/>
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/foodComplements"
+        android:name="com.fuimonos.app.foodcomplements.FoodComplementsFragment"
+        android:label="complementos"
+        tools:layout="@layout/frg_food_complements">
+
+        <argument
+            android:name="FOOD"
+            app:argType="com.fuimonos.app.models.Food"/>
+
     </fragment>
 
 </navigation>

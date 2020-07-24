@@ -50,6 +50,7 @@ dependencies {
     implementation Libs.coroutinesAndroid
     implementation Libs.imagePicker
     implementation Libs.picasso
+    implementation Libs.travijuuNumberPicker
     kapt Libs.dataBindingCompiler
 
     implementation SupportLibs.appcompat

@@ -42,6 +42,8 @@ object Libs {
     const val imagePicker = "com.github.dhaval2404:imagepicker:${Versions.imagePicker}"
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 
+    const val travijuuNumberPicker = "com.github.travijuu:numberpicker:1.0.7"
+
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }
 

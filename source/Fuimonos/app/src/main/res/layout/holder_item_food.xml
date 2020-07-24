@@ -35,7 +35,7 @@
                 android:layout_marginStart="@dimen/space_2x"
                 android:layout_marginTop="@dimen/space_default"
                 android:layout_marginBottom="@dimen/space_default"
-                app:srcCompat="@drawable/food_sample"
+                tools:srcCompat="@drawable/food_sample"
                 android:scaleType="centerCrop"
                 app:layout_constraintDimensionRatio="4:3"
                 app:layout_constraintStart_toStartOf="parent"

@@ -1,7 +1,9 @@
 package com.fuimonos.app.di
 
 import com.fuimonos.app.appnavigator.AppNavigatorViewModel
+import com.fuimonos.app.foodcomplements.FoodComplementsViewModel
 import com.fuimonos.app.login.LoginViewModel
+import com.fuimonos.app.models.Food
 import com.fuimonos.app.models.Restaurant
 import com.fuimonos.app.recoverpassword.RecoverPasswordViewModel
 import com.fuimonos.app.restaurantmenu.RestaurantMenuViewModel
@@ -19,4 +21,5 @@ val appModule = module {
     viewModel { AppNavigatorViewModel() }
     viewModel { RestaurantsViewModel() }
     viewModel { (restaurant: Restaurant) -> RestaurantMenuViewModel(restaurant) }
+    viewModel { (food: Food) -> FoodComplementsViewModel(food) }
 }
