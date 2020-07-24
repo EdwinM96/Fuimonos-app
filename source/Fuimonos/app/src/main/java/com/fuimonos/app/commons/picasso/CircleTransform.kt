@@ -1,4 +1,4 @@
-package com.fuimonos.app.commons
+package com.fuimonos.app.commons.picasso
 
 import android.graphics.*
 import com.squareup.picasso.Transformation

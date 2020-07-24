@@ -41,4 +41,6 @@
     <string name="options">Opciones</string>
     <string name="x_restaurants">%d restaurantes</string>
     <string name="minimal_mount">Monto\nmínimo</string>
+    <string name="add">Agregar</string>
+    <string name="price_x">\u0024%.2f</string>
 </resources>

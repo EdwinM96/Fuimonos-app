@@ -22,7 +22,7 @@ class RestaurantsFragment : BaseViewModelFragment<RestaurantsViewModel, FrgResta
 
     override val mViewModel: RestaurantsViewModel by viewModel()
     override val contentViewLayoutRes = R.layout.frg_restaurants
-    lateinit var categoriesRestaurantsAdapter: CategoriesRestaurantsAdapter
+    private lateinit var categoriesRestaurantsAdapter: CategoriesRestaurantsAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -60,12 +60,6 @@ class RestaurantsFragment : BaseViewModelFragment<RestaurantsViewModel, FrgResta
         val bundleArgs = bundleOf(RESTAURANT_ARG to restaurant)
         findNavController().navigate(R.id.action_restaurants_to_restaurant_menu,
                                      bundleArgs)
-    }
-
-    companion object {
-        fun newInstance() : RestaurantsFragment {
-            return RestaurantsFragment()
-        }
     }
 
 }

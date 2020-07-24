@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fuimonos.app.R
-import com.fuimonos.app.commons.CircleTransform
+import com.fuimonos.app.commons.picasso.CircleTransform
 import com.fuimonos.app.databinding.HolderItemRestaurantBinding
 import com.fuimonos.app.models.Restaurant
 import com.fuimonos.app.models.RestaurantsHeaded

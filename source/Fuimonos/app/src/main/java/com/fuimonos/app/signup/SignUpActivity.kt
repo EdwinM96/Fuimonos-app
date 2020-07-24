@@ -7,7 +7,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BindableVMActivity
-import com.fuimonos.app.commons.CircleTransform
+import com.fuimonos.app.commons.picasso.CircleTransform
 import com.fuimonos.app.databinding.ActSignupBinding
 import com.fuimonos.app.signup.SignUpValidation.*
 import com.github.dhaval2404.imagepicker.ImagePicker
