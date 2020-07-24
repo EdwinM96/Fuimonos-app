@@ -88,8 +88,7 @@ fun BottomNavigationView.setupWithNavController(
     // When a navigation item is selected
     setOnNavigationItemSelectedListener { item ->
 
-        if(item.itemId == R.id.menuShoppingCart ||
-            item.itemId == R.id.menuOptions) {
+        if(item.itemId == R.id.menuOptions) {
             Toast.makeText(context, "Opción no disponible", Toast.LENGTH_SHORT).show()
             return@setOnNavigationItemSelectedListener false
         }

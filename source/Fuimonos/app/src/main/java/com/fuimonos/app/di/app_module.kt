@@ -8,6 +8,7 @@ import com.fuimonos.app.models.Restaurant
 import com.fuimonos.app.recoverpassword.RecoverPasswordViewModel
 import com.fuimonos.app.restaurantmenu.RestaurantMenuViewModel
 import com.fuimonos.app.restaurants.RestaurantsViewModel
+import com.fuimonos.app.shoppingcart.ShoppingCartViewModel
 import com.fuimonos.app.signup.SignUpViewModel
 import com.fuimonos.app.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -22,4 +23,5 @@ val appModule = module {
     viewModel { RestaurantsViewModel() }
     viewModel { (restaurant: Restaurant) -> RestaurantMenuViewModel(restaurant) }
     viewModel { (food: Food) -> FoodComplementsViewModel(food) }
+    viewModel { ShoppingCartViewModel() }
 }

@@ -48,4 +48,7 @@
     <string name="plus_sign">+</string>
     <string name="initial_number_picker_value">1</string>
     <string name="add_to_shopping_cart">Agregar a carrito</string>
+    <string name="empty_shopping_cart_title">Aquí no hay nada,\ncreí que teníamos hambre...</string>
+    <string name="your_cart_is_empty">Tu carrito está vacío</string>
+    <string name="empty_shopping_cart_description">Haz un pedido para visualizar tus ordenes</string>
 </resources>

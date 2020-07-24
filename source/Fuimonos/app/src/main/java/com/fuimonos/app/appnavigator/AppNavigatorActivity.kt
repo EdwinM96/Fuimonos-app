@@ -37,7 +37,7 @@ class AppNavigatorActivity : BindableVMActivity<AppNavigatorViewModel, ActAppNav
     }
 
     private fun setupBottomNavigationView() {
-        val navGraphIds = listOf(R.navigation.menu_home)
+        val navGraphIds = listOf(R.navigation.menu_home, R.navigation.menu_shopping_cart)
         val navController = bottomNavigation.setupWithNavController(navGraphIds,
                                                                     supportFragmentManager,
                                                                     R.id.fragmentContainer,

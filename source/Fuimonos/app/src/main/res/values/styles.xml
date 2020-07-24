@@ -63,6 +63,10 @@
         <item name="android:paddingBottom">@dimen/space_2x</item>
         <item name="cornerRadius">100dp</item>
     </style>
+
+    <style name="SecondaryButtonStyle" parent="PrimaryButtonStyle">
+        <item name="backgroundTint">@color/orange</item>
+    </style>
     
     <style name="PrimaryRightButtonStyle" parent="MainButtonStyle">
         <item name="android:textAppearance">@style/TextAppearance.AppCompat.Medium</item>
