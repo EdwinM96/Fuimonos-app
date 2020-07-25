@@ -13,7 +13,11 @@
 
         <action
             android:id="@+id/action_restaurants_to_restaurant_menu"
-            app:destination="@+id/restaurantMenu"/>
+            app:destination="@+id/restaurantMenu"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit"/>
 
     </fragment>
 
@@ -29,7 +33,11 @@
 
         <action
             android:id="@+id/action_menu_to_food_complement"
-            app:destination="@+id/foodComplements"/>
+            app:destination="@+id/foodComplements"
+            app:enterAnim="@anim/fragment_close_enter"
+            app:exitAnim="@anim/fragment_close_exit"
+            app:popEnterAnim="@anim/fragment_open_enter"
+            app:popExitAnim="@anim/fragment_open_exit"/>
 
     </fragment>
 
