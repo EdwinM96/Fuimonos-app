@@ -46,7 +46,7 @@ android {
         }
         dev {
             applicationIdSuffix '.dev'
-            buildConfigField "String", "BASE_URL", '"https://fuimonos-admin.herokuapp.com/"'
+            buildConfigField "String", "BASE_URL", '"https://fuimonos-admin.herokuapp.com/api/"'
         }
         prod {
             buildConfigField "String", "BASE_URL", '""'
@@ -63,6 +63,9 @@ dependencies {
     implementation Libs.timber
     implementation Libs.coroutinesCore
     implementation Libs.coroutinesAndroid
+    implementation Libs.retrofit
+    implementation Libs.retrofitGson
+    implementation Libs.httpLogginInterceptor
     implementation Libs.imagePicker
     implementation Libs.picasso
     implementation Libs.travijuuNumberPicker

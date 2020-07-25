@@ -19,6 +19,9 @@ object Versions {
 
     const val lifecycle = "2.2.0"
 
+    const val retrofit = "2.6.1"
+    const val httpLoggingInterceptor = "4.2.0"
+
     const val googleMaterial = "1.1.0"
 
     const val imagePicker = "1.7.3"
@@ -35,6 +38,10 @@ object Libs {
     const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val ktx = "androidx.core:core-ktx:${Versions.ktx}"
     const val dataBindingCompiler = "com.android.databinding:compiler:${Versions.gradle}"
+
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val httpLogginInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.httpLoggingInterceptor}"
 
     const val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.kotlinCoroutines}"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.kotlinCoroutines}"

@@ -33,7 +33,7 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
         mViewModel.onShowValidations.observe(this, Observer{ validations ->
             showValidations(validations)
         })
-        mViewModel.onLoginSucess.observe(this, Observer {
+        mViewModel.onLoginSuccess.observe(this, Observer {
             showMainScreen()
         })
         mViewModel.onSignUp.observe(this, Observer {

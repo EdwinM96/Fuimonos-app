@@ -14,7 +14,7 @@ class LoginViewModel : BaseViewModel() {
     val onShowValidations = SingleLiveEvent<List<LoginValidation>>()
     val onSignUp = SingleLiveEvent<Nothing>()
     val onForgotPassword = SingleLiveEvent<Nothing>()
-    val onLoginSucess = SingleLiveEvent<Nothing>()
+    val onLoginSuccess = SingleLiveEvent<Nothing>()
 
     fun onLogin() {
 
@@ -25,7 +25,7 @@ class LoginViewModel : BaseViewModel() {
             return
         }
 
-        onLoginSucess.call()
+        onLoginSuccess.call()
 
     }
 
