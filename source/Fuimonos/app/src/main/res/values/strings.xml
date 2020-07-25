@@ -51,4 +51,13 @@
     <string name="empty_shopping_cart_title">Aquí no hay nada,\ncreí que teníamos hambre...</string>
     <string name="your_cart_is_empty">Tu carrito está vacío</string>
     <string name="empty_shopping_cart_description">Haz un pedido para visualizar tus ordenes</string>
+    <string name="my_profile_option">Mi perfil</string>
+    <string name="wallet_option">Billetera</string>
+    <string name="adresses_option">Direcciones</string>
+    <string name="my_orders_option">Mis órdenes</string>
+    <string name="favorites_option">Favoritos</string>
+    <string name="support_option">Soporte</string>
+    <string name="contact_us_option">Contactanos</string>
+    <string name="track_your_order_option">Seguí tu pedido</string>
+    <string name="log_out_option">Cerrar sesión</string>
 </resources>

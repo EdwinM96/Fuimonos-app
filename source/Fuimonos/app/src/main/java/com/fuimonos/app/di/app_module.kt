@@ -5,6 +5,7 @@ import com.fuimonos.app.foodcomplements.FoodComplementsViewModel
 import com.fuimonos.app.login.LoginViewModel
 import com.fuimonos.app.models.Food
 import com.fuimonos.app.models.Restaurant
+import com.fuimonos.app.options.OptionsViewModel
 import com.fuimonos.app.recoverpassword.RecoverPasswordViewModel
 import com.fuimonos.app.restaurantmenu.RestaurantMenuViewModel
 import com.fuimonos.app.restaurants.RestaurantsViewModel
@@ -24,4 +25,5 @@ val appModule = module {
     viewModel { (restaurant: Restaurant) -> RestaurantMenuViewModel(restaurant) }
     viewModel { (food: Food) -> FoodComplementsViewModel(food) }
     viewModel { ShoppingCartViewModel() }
+    viewModel { OptionsViewModel() }
 }

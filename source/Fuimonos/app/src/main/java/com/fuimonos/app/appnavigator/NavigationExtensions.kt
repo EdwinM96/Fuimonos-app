@@ -88,11 +88,6 @@ fun BottomNavigationView.setupWithNavController(
     // When a navigation item is selected
     setOnNavigationItemSelectedListener { item ->
 
-        if(item.itemId == R.id.menuOptions) {
-            Toast.makeText(context, "Opción no disponible", Toast.LENGTH_SHORT).show()
-            return@setOnNavigationItemSelectedListener false
-        }
-
         // Don't do anything if the state is state has already been saved.
         if (fragmentManager.isStateSaved) {
             false
