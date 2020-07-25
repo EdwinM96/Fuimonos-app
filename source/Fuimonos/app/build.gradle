@@ -38,6 +38,21 @@ android {
         enabled = true
     }
 
+    flavorDimensions 'default'
+
+    productFlavors {
+        mock {
+            applicationIdSuffix '.mock'
+        }
+        dev {
+            applicationIdSuffix '.dev'
+            buildConfigField "String", "BASE_URL", '"https://fuimonos-admin.herokuapp.com/"'
+        }
+        prod {
+            buildConfigField "String", "BASE_URL", '""'
+        }
+    }
+
 }
 
 dependencies {
