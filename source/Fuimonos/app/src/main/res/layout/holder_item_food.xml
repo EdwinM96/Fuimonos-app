@@ -21,7 +21,7 @@
         android:layout_marginEnd="@dimen/space_2x"
         android:layout_marginBottom="@dimen/space_2x"
         app:cardCornerRadius="8dp"
-        app:cardElevation="16dp"
+        app:cardElevation="8dp"
         android:onClick="@{ () -> viewModel.onSelectFood(food) }">
 
         <androidx.constraintlayout.widget.ConstraintLayout

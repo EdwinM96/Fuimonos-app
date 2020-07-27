@@ -22,33 +22,33 @@ abstract class BaseViewModelFragment<VM: BaseViewModel, BINDING : ViewDataBindin
 	abstract val mViewModel: VM
 	abstract val contentViewLayoutRes: Int
 
-	private var progressBar: ProgressBar? = null
+	private var binding by AutoClearedValue<BINDING>()
 	
 	override fun onCreateView(inflater: LayoutInflater,
 	                          container: ViewGroup?,
 	                          savedInstanceState: Bundle?): View? {
-		val binding = setupDataBinding(inflater, container)
+		binding = setupDataBinding(inflater, container)
 		return binding.root
 	}
 	
 	override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 		super.onViewCreated(view, savedInstanceState)
-		setupBase(view)
+		setupBase()
 	}
 	
 	private fun setupDataBinding(inflater: LayoutInflater,
-	                             container: ViewGroup?) : ViewDataBinding {
-		val binding: BINDING = DataBindingUtil.inflate(inflater,
+	                             container: ViewGroup?) : BINDING {
+		binding = DataBindingUtil.inflate(inflater,
 			contentViewLayoutRes,
 			container,
 			false)
-		binding.setVariable(BR.viewModel, mViewModel)
-		binding.lifecycleOwner = viewLifecycleOwner
 		return binding
 	}
 	
-	private fun setupBase(view: View) {
-		progressBar = view.findViewById(R.id.progressBar)
+	private fun setupBase() {
+		binding.lifecycleOwner = viewLifecycleOwner
+		binding.setVariable(BR.viewModel, mViewModel)
+
 		setupVMSubscription()
 	}
 	
@@ -62,7 +62,9 @@ abstract class BaseViewModelFragment<VM: BaseViewModel, BINDING : ViewDataBindin
 	}
 	
 	protected open fun showProgress(visible: Boolean) {
-		
+
+		val progressBar = binding.root.findViewById<ProgressBar>(R.id.progressBar)
+
 		progressBar?.let {
 			if(visible) {
 				it.visibility = View.VISIBLE
