@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuimonos.app.R
+import com.fuimonos.app.commons.AutoClearedValue
 import com.fuimonos.app.commons.BaseViewModelFragment
 import com.fuimonos.app.databinding.FrgOptionsBinding
 import com.fuimonos.app.login.LoginActivity
@@ -18,7 +19,7 @@ class OptionsFragment : BaseViewModelFragment<OptionsViewModel, FrgOptionsBindin
 
     override val mViewModel: OptionsViewModel by viewModel()
     override val contentViewLayoutRes = R.layout.frg_options
-    private lateinit var optionsAdapter: OptionsAdapter
+    private var optionsAdapter by AutoClearedValue<OptionsAdapter>()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
