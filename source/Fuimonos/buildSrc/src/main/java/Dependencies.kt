@@ -27,6 +27,8 @@ object Versions {
     const val imagePicker = "1.7.3"
     const val picasso = "2.71828"
 
+    const val encryptedPreferences = "1.3.0"
+
     const val timber = "4.7.1"
 
     const val junit = "4.12"
@@ -50,6 +52,8 @@ object Libs {
     const val picasso = "com.squareup.picasso:picasso:${Versions.picasso}"
 
     const val travijuuNumberPicker = "com.github.travijuu:numberpicker:1.0.7"
+
+    const val encryptedPrefereces = "com.pddstudio:encrypted-preferences:${Versions.encryptedPreferences}"
 
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }

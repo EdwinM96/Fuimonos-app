@@ -43,7 +43,7 @@ abstract class BaseViewModelFragment<VM: BaseViewModel, BINDING : ViewDataBindin
 			container,
 			false)
 		binding.setVariable(BR.viewModel, mViewModel)
-		binding.lifecycleOwner = this
+		binding.lifecycleOwner = viewLifecycleOwner
 		return binding
 	}
 	

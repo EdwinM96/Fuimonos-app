@@ -5,12 +5,15 @@ import androidx.core.util.set
 import androidx.lifecycle.MutableLiveData
 import com.fuimonos.app.commons.BaseViewModel
 import com.fuimonos.app.commons.SingleLiveEvent
+import com.fuimonos.app.data.local.SessionDataPref
 import com.fuimonos.app.models.Food
 import com.fuimonos.app.models.Menu
 import com.fuimonos.app.models.Restaurant
 
-class RestaurantMenuViewModel(val restaurant: Restaurant) : BaseViewModel() {
+class RestaurantMenuViewModel(val restaurant: Restaurant,
+                              private val sessionDataPref: SessionDataPref) : BaseViewModel() {
 
+    val onShowProfilePhoto = MutableLiveData<String>()
     val onShowRestaurantLogo = MutableLiveData<String>()
     val onShowMenuTabs = MutableLiveData<List<Menu>>()
     val onShowFoods = MutableLiveData<List<Food>>()
@@ -20,6 +23,7 @@ class RestaurantMenuViewModel(val restaurant: Restaurant) : BaseViewModel() {
     private val foodsByMenuId = SparseArray<List<Food>>()
 
     fun start() {
+        setProfilePhoto()
         onShowRestaurantLogo.value = restaurant.logo
         menus = getMenus()
         onShowMenuTabs.value = menus
@@ -80,6 +84,10 @@ class RestaurantMenuViewModel(val restaurant: Restaurant) : BaseViewModel() {
 
     fun requestFoodFrom(menuId: Int) {
         onShowFoods.value = foodsByMenuId[menuId]
+    }
+
+    private fun setProfilePhoto() {
+        onShowProfilePhoto.value = sessionDataPref.getProfilePhoto()
     }
 
 }

@@ -3,6 +3,9 @@ package com.fuimonos.app.di
 import com.fuimonos.app.appnavigator.AppNavigatorViewModel
 import com.fuimonos.app.data.ILoginRepository
 import com.fuimonos.app.data.LoginRepository
+import com.fuimonos.app.data.local.SessionDataPref
+import com.fuimonos.app.data.local.sharedprefs.CryptedPrefManager
+import com.fuimonos.app.data.local.sharedprefs.IPrefManager
 import com.fuimonos.app.data.remote.ApiHandler
 import com.fuimonos.app.data.remote.IApiHandler
 import com.fuimonos.app.foodcomplements.FoodComplementsViewModel
@@ -17,22 +20,30 @@ import com.fuimonos.app.shoppingcart.ShoppingCartViewModel
 import com.fuimonos.app.signup.SignUpViewModel
 import com.fuimonos.app.splash.SplashViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.qualifier.named
 import org.koin.dsl.module
+
+const val SECURE_PREF_KEY = "securePref"
 
 val appModule = module {
     viewModel { SplashViewModel() }
-    viewModel { LoginViewModel(get()) }
+    viewModel { LoginViewModel(get(), get()) }
     viewModel { SignUpViewModel() }
     viewModel { RecoverPasswordViewModel() }
     viewModel { AppNavigatorViewModel() }
-    viewModel { RestaurantsViewModel() }
-    viewModel { (restaurant: Restaurant) -> RestaurantMenuViewModel(restaurant) }
+    viewModel { RestaurantsViewModel(get()) }
+    viewModel { (restaurant: Restaurant) -> RestaurantMenuViewModel(restaurant, get()) }
     viewModel { (food: Food) -> FoodComplementsViewModel(food) }
     viewModel { ShoppingCartViewModel() }
     viewModel { OptionsViewModel() }
 }
 
 val repositoriesModule = module {
-    single { ApiHandler() as IApiHandler }
-    single { LoginRepository(get(), get()) as ILoginRepository }
+    single<IApiHandler> { ApiHandler() }
+    single<ILoginRepository> { LoginRepository(get(), get()) }
+}
+
+val encryptionModule = module {
+    single<IPrefManager>(named(SECURE_PREF_KEY)) { CryptedPrefManager(get()) }
+    single { SessionDataPref(get(named(SECURE_PREF_KEY))) }
 }

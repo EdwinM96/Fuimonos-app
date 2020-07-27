@@ -3,16 +3,19 @@ package com.fuimonos.app.restaurants
 import androidx.lifecycle.MutableLiveData
 import com.fuimonos.app.commons.BaseViewModel
 import com.fuimonos.app.commons.SingleLiveEvent
+import com.fuimonos.app.data.local.SessionDataPref
 import com.fuimonos.app.models.FoodCategory
 import com.fuimonos.app.models.Restaurant
 import com.fuimonos.app.models.RestaurantsHeaded
 
-class RestaurantsViewModel : BaseViewModel() {
+class RestaurantsViewModel(private val sessionDataPref: SessionDataPref) : BaseViewModel() {
 
+    val onShowProfilePhoto = MutableLiveData<String>()
     val onShowCategoriesRestaurants = MutableLiveData<Pair<List<FoodCategory>, List<RestaurantsHeaded>>>()
     val onRestaurantSelected = SingleLiveEvent<Restaurant>()
 
     fun start() {
+        setProfilePhoto()
         val categories = listOf(
             FoodCategory(1, "https://drive.google.com/uc?id=1TAl96cfsg-UgNrcJlI0KSiVdoPmRETI8", "Hamburguesa", 12),
             FoodCategory(2, "https://drive.google.com/uc?id=1octxHVNnNlOqPE9rPvSWnAvfcZwhZO2A", "Pizza", 9),
@@ -59,6 +62,10 @@ class RestaurantsViewModel : BaseViewModel() {
 
     fun onSelectRestaurant(restaurant: Restaurant) {
         onRestaurantSelected.value = restaurant
+    }
+
+    private fun setProfilePhoto() {
+        onShowProfilePhoto.value = sessionDataPref.getProfilePhoto()
     }
 
 }

@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fuimonos.app.R
+import com.fuimonos.app.commons.AutoClearedValue
 import com.fuimonos.app.commons.BackViewModelFragment
 import com.fuimonos.app.commons.BaseViewModelFragment
 import com.fuimonos.app.commons.picasso.CircleTransform
@@ -19,6 +20,7 @@ import com.fuimonos.app.models.Restaurant
 import com.google.android.material.tabs.TabLayout
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.frg_restaurant_menu.*
+import kotlinx.android.synthetic.main.inc_profile_photo.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
@@ -28,7 +30,7 @@ class RestaurantMenuFragment : BackViewModelFragment<RestaurantMenuViewModel, Fr
 
     override val mViewModel: RestaurantMenuViewModel by viewModel { parametersOf(restaurant) }
     override val contentViewLayoutRes = R.layout.frg_restaurant_menu
-    private lateinit var foodsAdapter: FoodsAdapter
+    private var foodsAdapter by AutoClearedValue<FoodsAdapter>()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -37,6 +39,9 @@ class RestaurantMenuFragment : BackViewModelFragment<RestaurantMenuViewModel, Fr
 
     override fun setupVMSubscription() {
         super.setupVMSubscription()
+        mViewModel.onShowProfilePhoto.observe(viewLifecycleOwner, Observer { profilePhoto ->
+            showProfilePhoto(profilePhoto)
+        })
         mViewModel.onShowRestaurantLogo.observe(viewLifecycleOwner, Observer { logo ->
             setupRestaurantLogo(logo)
         })
@@ -57,6 +62,12 @@ class RestaurantMenuFragment : BackViewModelFragment<RestaurantMenuViewModel, Fr
         setupFoodRecyclerView()
     }
 
+    private fun showProfilePhoto(profilePhoto: String) {
+        Picasso.get()
+            .load(profilePhoto)
+            .transform(CircleTransform())
+            .into(ivProfilePhoto)
+    }
 
     private fun setupRestaurantLogo(logo: String?) {
         Picasso.get()

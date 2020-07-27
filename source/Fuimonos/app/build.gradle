@@ -69,6 +69,7 @@ dependencies {
     implementation Libs.imagePicker
     implementation Libs.picasso
     implementation Libs.travijuuNumberPicker
+    implementation Libs.encryptedPrefereces
     kapt Libs.dataBindingCompiler
 
     implementation SupportLibs.appcompat

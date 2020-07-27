@@ -5,10 +5,13 @@ import com.fuimonos.app.commons.BaseViewModel
 import com.fuimonos.app.commons.SingleLiveEvent
 import com.fuimonos.app.commons.Validator
 import com.fuimonos.app.data.ILoginRepository
+import com.fuimonos.app.data.local.SessionDataPref
 import com.fuimonos.app.ext.isValidEmail
 import com.fuimonos.app.models.LoginRequest
+import com.fuimonos.app.models.LoginResponse
 
-class LoginViewModel(private val loginRepository: ILoginRepository) : BaseViewModel() {
+class LoginViewModel(private val loginRepository: ILoginRepository,
+                     private val sessionDataPref: SessionDataPref) : BaseViewModel() {
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -33,8 +36,8 @@ class LoginViewModel(private val loginRepository: ILoginRepository) : BaseViewMo
 
             val apiResult = loginRepository.login(loginRequest)
 
-            apiResult.isSuccessDo {
-                //TODO: GUARDAR DATOS DE LOGIN RESPONSE Y USUARIO Y CONTRASEÑA ENCRIPTADOS
+            apiResult.isSuccessDo { response ->
+                handleResponse(response)
                 onLoginSuccess.call()
             }
 
@@ -48,6 +51,13 @@ class LoginViewModel(private val loginRepository: ILoginRepository) : BaseViewMo
 
     fun onForgotPassword() {
         onForgotPassword.call()
+    }
+
+    private fun handleResponse(response: LoginResponse) {
+        sessionDataPref.saveCredentials("${email.value}:${password.value}") //TODO: ENCRIPTAR TAMBIÉN AUNQUE SHAREDPREF YA LO ENCRIPTA
+        sessionDataPref.saveNameLogged(response.name ?: "")
+        sessionDataPref.saveProfilePhoto(response.profilePhoto ?: "")
+        sessionDataPref.saveUserEmail(response.email ?: "")
     }
 
     private inline fun ifThereAreValidationsDo(block: (List<LoginValidation>) -> Unit) {

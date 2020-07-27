@@ -8,8 +8,8 @@ import com.fuimonos.app.models.Option
 
 class OptionsViewModel : BaseViewModel() {
 
-    val onShowOptions = MutableLiveData<List<Option>>()
-    val onShowSelectedOption = MutableLiveData<Option>()
+    val onShowOptions = SingleLiveEvent<List<Option>>()
+    val onShowSelectedOption = SingleLiveEvent<Option>()
     val onLogoutSelected = SingleLiveEvent<Nothing>()
     private val options = getOptions()
 
