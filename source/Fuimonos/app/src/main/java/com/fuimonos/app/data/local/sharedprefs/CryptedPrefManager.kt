@@ -21,8 +21,12 @@ class CryptedPrefManager(context: Context) : IPrefManager {
         return cryptedSharedPref.getString(key, defValue)
     }
 
+    override fun contains(key: String): Boolean {
+        return cryptedSharedPref.contains(key)
+    }
+
     override fun removeKey(key: String) {
-        editor.remove(key)
+        editor.remove(key).apply()
     }
 
     companion object {

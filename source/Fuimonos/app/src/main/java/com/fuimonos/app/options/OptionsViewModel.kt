@@ -1,12 +1,12 @@
 package com.fuimonos.app.options
 
-import androidx.lifecycle.MutableLiveData
 import com.fuimonos.app.R
 import com.fuimonos.app.commons.BaseViewModel
 import com.fuimonos.app.commons.SingleLiveEvent
+import com.fuimonos.app.data.local.SessionDataPref
 import com.fuimonos.app.models.Option
 
-class OptionsViewModel : BaseViewModel() {
+class OptionsViewModel(private val sessionDataPref: SessionDataPref) : BaseViewModel() {
 
     val onShowOptions = SingleLiveEvent<List<Option>>()
     val onShowSelectedOption = SingleLiveEvent<Option>()
@@ -20,7 +20,7 @@ class OptionsViewModel : BaseViewModel() {
     fun onSelectOption(option: Option) {
 
         if(option.drawableId == R.drawable.ic_log_out_option) {
-            //TODO: ELIMINAR DATOS DE SESIÓN
+            sessionDataPref.clearSessionData()
             onLogoutSelected.call()
             return
         }

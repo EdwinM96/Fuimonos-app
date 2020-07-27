@@ -26,7 +26,7 @@ import org.koin.dsl.module
 const val SECURE_PREF_KEY = "securePref"
 
 val appModule = module {
-    viewModel { SplashViewModel() }
+    viewModel { SplashViewModel(get()) }
     viewModel { LoginViewModel(get(), get()) }
     viewModel { SignUpViewModel() }
     viewModel { RecoverPasswordViewModel() }
@@ -35,7 +35,7 @@ val appModule = module {
     viewModel { (restaurant: Restaurant) -> RestaurantMenuViewModel(restaurant, get()) }
     viewModel { (food: Food) -> FoodComplementsViewModel(food) }
     viewModel { ShoppingCartViewModel() }
-    viewModel { OptionsViewModel() }
+    viewModel { OptionsViewModel(get()) }
 }
 
 val repositoriesModule = module {

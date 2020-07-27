@@ -36,6 +36,10 @@ class SessionDataPref(private val prefManager: IPrefManager) {
         return prefManager.getString(USER_EMAIL_KEY)
     }
 
+    fun existsSessionData(): Boolean {
+        return prefManager.contains(CREDENTIALS_KEY)
+    }
+
     fun clearSessionData() {
         with(prefManager) {
             removeKey(CREDENTIALS_KEY)
