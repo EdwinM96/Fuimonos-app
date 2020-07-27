@@ -4,16 +4,21 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import android.view.View
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
 import com.fuimonos.app.appnavigator.AppNavigatorActivity
 import com.fuimonos.app.commons.BindableVMActivity
 import com.fuimonos.app.databinding.ActLoginBinding
+import com.fuimonos.app.ext.disableTouch
+import com.fuimonos.app.ext.enableTouch
+import com.fuimonos.app.ext.hideKeyboard
 import com.fuimonos.app.login.LoginValidation.*
 import com.fuimonos.app.recoverpassword.RecoverPasswordActivity
 import com.fuimonos.app.signup.SignUpActivity
 import kotlinx.android.synthetic.main.act_login.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
 
@@ -27,6 +32,9 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
 
     override fun setupSubscription() {
         super.setupSubscription()
+        mViewModel.onShowProgress.observe(this, Observer {
+            showProgress(it)
+        })
         mViewModel.onClearValidations.observe(this, Observer {
             clearValidations()
         })
@@ -85,6 +93,24 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
                 Intent.FLAG_ACTIVITY_CLEAR_TASK or
                 Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
+    }
+
+    private fun showProgress(visible: Boolean) {
+
+        progressBar?.let {
+            if(visible) {
+                it.visibility = View.VISIBLE
+                this.disableTouch()
+                this.hideKeyboard()
+                return
+            }
+            it.visibility = View.GONE
+            this.enableTouch()
+        } ?: run {
+            Timber.e("progressBar is not defined in layout")
+            return
+        }
+
     }
 
 }

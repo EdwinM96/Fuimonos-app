@@ -4,9 +4,11 @@ import androidx.lifecycle.MutableLiveData
 import com.fuimonos.app.commons.BaseViewModel
 import com.fuimonos.app.commons.SingleLiveEvent
 import com.fuimonos.app.commons.Validator
+import com.fuimonos.app.data.ILoginRepository
 import com.fuimonos.app.ext.isValidEmail
+import com.fuimonos.app.models.LoginRequest
 
-class LoginViewModel : BaseViewModel() {
+class LoginViewModel(private val loginRepository: ILoginRepository) : BaseViewModel() {
 
     val email = MutableLiveData<String>()
     val password = MutableLiveData<String>()
@@ -25,7 +27,18 @@ class LoginViewModel : BaseViewModel() {
             return
         }
 
-        onLoginSuccess.call()
+        val loginRequest = buildLoginRequest()
+
+        launchCoroutines {
+
+            val apiResult = loginRepository.login(loginRequest)
+
+            apiResult.isSuccessDo {
+                //TODO: GUARDAR DATOS DE LOGIN RESPONSE Y USUARIO Y CONTRASEÑA ENCRIPTADOS
+                onLoginSuccess.call()
+            }
+
+        }
 
     }
 
@@ -54,6 +67,12 @@ class LoginViewModel : BaseViewModel() {
             block.invoke(validations)
         }
 
+    }
+
+    private fun buildLoginRequest(): LoginRequest {
+        val email = email.value ?: ""
+        val pass = password.value ?: ""
+        return LoginRequest(email, pass)
     }
 
 }
