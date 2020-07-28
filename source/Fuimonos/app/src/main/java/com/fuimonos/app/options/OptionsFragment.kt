@@ -12,6 +12,7 @@ import com.fuimonos.app.commons.BaseViewModelFragment
 import com.fuimonos.app.databinding.FrgOptionsBinding
 import com.fuimonos.app.login.LoginActivity
 import com.fuimonos.app.models.Option
+import com.fuimonos.app.userprofile.UserProfileActivity
 import kotlinx.android.synthetic.main.frg_options.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -55,7 +56,15 @@ class OptionsFragment : BaseViewModelFragment<OptionsViewModel, FrgOptionsBindin
     }
 
     private fun showOptionScreen(option: Option) {
-        Toast.makeText(context, "${getString(option.nameRes)} no está disponible", Toast.LENGTH_LONG).show()
+        when(option.drawableId) {
+            R.drawable.ic_profile_option -> showProfile()
+            else -> Toast.makeText(context, "${getString(option.nameRes)} no está disponible", Toast.LENGTH_LONG).show()
+        }
+    }
+
+    private fun showProfile() {
+        val intent = Intent(activity, UserProfileActivity::class.java)
+        activity?.startActivity(intent)
     }
 
     private fun showLogin() {

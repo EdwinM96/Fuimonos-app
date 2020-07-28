@@ -19,6 +19,7 @@ import com.fuimonos.app.restaurants.RestaurantsViewModel
 import com.fuimonos.app.shoppingcart.ShoppingCartViewModel
 import com.fuimonos.app.signup.SignUpViewModel
 import com.fuimonos.app.splash.SplashViewModel
+import com.fuimonos.app.userprofile.UserProfileViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
@@ -36,6 +37,7 @@ val appModule = module {
     viewModel { (food: Food) -> FoodComplementsViewModel(food) }
     viewModel { ShoppingCartViewModel() }
     viewModel { OptionsViewModel(get()) }
+    viewModel { UserProfileViewModel(get()) }
 }
 
 val repositoriesModule = module {
