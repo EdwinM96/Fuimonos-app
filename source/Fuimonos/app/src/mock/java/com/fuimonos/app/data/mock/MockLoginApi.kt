@@ -1,6 +1,8 @@
 package com.fuimonos.app.data.mock
 
 import com.fuimonos.app.data.remote.ILoginApi
+import com.fuimonos.app.models.ChangePasswordRequest
+import com.fuimonos.app.models.ChangePasswordResponse
 import com.fuimonos.app.models.LoginRequest
 import com.fuimonos.app.models.LoginResponse
 import kotlinx.coroutines.delay
@@ -20,6 +22,12 @@ class MockLoginApi : ILoginApi {
 
         return Response.success(responseData)
 
+    }
+
+    override suspend fun changePassword(changePasswordRequest: ChangePasswordRequest): Response<ChangePasswordResponse> {
+        delay(1000)
+        val responseData = ChangePasswordResponse("Hemos actualizado tu contraseña")
+        return Response.success(responseData)
     }
 
 }

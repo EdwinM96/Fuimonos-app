@@ -11,6 +11,7 @@ class UserProfileViewModel(private val sessionDataPref: SessionDataPref) : BaseV
     val userEmail = MutableLiveData(getUserEmail())
 
     val onShowProfilePhoto = MutableLiveData<String>()
+    val onChangePassword = SingleLiveEvent<Nothing>()
     val onLogout = SingleLiveEvent<Nothing>()
 
     fun start() {
@@ -18,7 +19,7 @@ class UserProfileViewModel(private val sessionDataPref: SessionDataPref) : BaseV
     }
 
     fun onChangePassword() {
-        toast.value = "No disponible"
+        onChangePassword.call()
     }
 
     fun onRecoverPassword() {

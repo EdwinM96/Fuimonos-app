@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
+import com.fuimonos.app.changepassword.ChangePasswordActivity
 import com.fuimonos.app.commons.BindableVMActivity
 import com.fuimonos.app.commons.picasso.CircleTransform
 import com.fuimonos.app.databinding.ActUserProfileBinding
@@ -27,6 +28,9 @@ class UserProfileActivity : BindableVMActivity<UserProfileViewModel, ActUserProf
         mViewModel.onShowProfilePhoto.observe(this, Observer { profilePhoto ->
             showProfilePhoto(profilePhoto)
         })
+        mViewModel.onChangePassword.observe(this, Observer {
+            showChangePasswordScreen()
+        })
         mViewModel.onLogout.observe(this, Observer {
             showLogin()
         })
@@ -41,6 +45,11 @@ class UserProfileActivity : BindableVMActivity<UserProfileViewModel, ActUserProf
             .load(profilePhoto)
             .transform(CircleTransform())
             .into(ivProfilePhoto)
+    }
+
+    private fun showChangePasswordScreen() {
+        val intent = Intent(this, ChangePasswordActivity::class.java)
+        startActivity(intent)
     }
 
     private fun showLogin() {

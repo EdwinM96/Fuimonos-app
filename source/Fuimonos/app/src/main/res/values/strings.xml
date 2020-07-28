@@ -62,4 +62,11 @@
     <string name="log_out_option">Cerrar sesión</string>
     <string name="change_password">Cambiar contraseña</string>
     <string name="hello_x">Hola %s!</string>
+    <string name="current_password_required">Contraseña actual*</string>
+    <string name="new_password_required">Nueva contraseña*</string>
+    <string name="confirm_password_required">Confirmar contraseña*</string>
+    <string name="val_empty_current_pass">Necesitamos tu contraseña actual</string>
+    <string name="val_empty_new_pass">Necesitamos tu nueva contraseña</string>
+    <string name="val_empty_confirm_pass">Necesitamos que confirmes tu contraseña nueva</string>
+    <string name="val_pass_not_equals">Las contraseñas no coinciden</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.fuimonos.app.di
 
 import com.fuimonos.app.appnavigator.AppNavigatorViewModel
+import com.fuimonos.app.changepassword.ChangePasswordViewModel
 import com.fuimonos.app.data.ILoginRepository
 import com.fuimonos.app.data.LoginRepository
 import com.fuimonos.app.data.local.SessionDataPref
@@ -38,6 +39,7 @@ val appModule = module {
     viewModel { ShoppingCartViewModel() }
     viewModel { OptionsViewModel(get()) }
     viewModel { UserProfileViewModel(get()) }
+    viewModel { ChangePasswordViewModel(get()) }
 }
 
 val repositoriesModule = module {
