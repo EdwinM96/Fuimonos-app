@@ -32,9 +32,6 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
 
     override fun setupSubscription() {
         super.setupSubscription()
-        mViewModel.onShowProgress.observe(this, Observer {
-            showProgress(it)
-        })
         mViewModel.onClearValidations.observe(this, Observer {
             clearValidations()
         })
@@ -93,24 +90,6 @@ class LoginActivity : BindableVMActivity<LoginViewModel, ActLoginBinding>() {
                 Intent.FLAG_ACTIVITY_CLEAR_TASK or
                 Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
-    }
-
-    private fun showProgress(visible: Boolean) {
-
-        progressBar?.let {
-            if(visible) {
-                it.visibility = View.VISIBLE
-                this.disableTouch()
-                this.hideKeyboard()
-                return
-            }
-            it.visibility = View.GONE
-            this.enableTouch()
-        } ?: run {
-            Timber.e("progressBar is not defined in layout")
-            return
-        }
-
     }
 
 }

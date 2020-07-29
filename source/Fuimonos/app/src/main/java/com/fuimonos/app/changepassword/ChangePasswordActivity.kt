@@ -1,11 +1,13 @@
 package com.fuimonos.app.changepassword
 
-import android.widget.Toast
 import androidx.lifecycle.Observer
 import com.fuimonos.app.R
+import com.fuimonos.app.actionmessage.ActionMessage
+import com.fuimonos.app.actionmessage.ActionMessageActivity
 import com.fuimonos.app.changepassword.ChangePasswordValidation.*
 import com.fuimonos.app.commons.BackViewModelActivity
 import com.fuimonos.app.databinding.ActChangePasswordBinding
+import com.fuimonos.app.login.LoginActivity
 import kotlinx.android.synthetic.main.act_change_password.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -23,8 +25,18 @@ class ChangePasswordActivity : BackViewModelActivity<ChangePasswordViewModel, Ac
             showValidations(validations)
         })
         mViewModel.onChangingPasswordSuccess.observe(this, Observer {
-            Toast.makeText(this, "datos válidos (redirigir a Listo)", Toast.LENGTH_LONG).show()
+            showReadyMessage()
         })
+    }
+
+    private fun showReadyMessage() {
+        val actionMessage = ActionMessage("¡Listo y seguro!",
+                                          R.drawable.ic_ready_secure,
+                                          "¡Listo!",
+                                          "Hemos actualizado tu contraseña",
+                                          getString(R.string.log_in),
+                                          clearBackStack = true)
+        ActionMessageActivity.launchWith(this, actionMessage, LoginActivity::class.java)
     }
 
     private fun clearValidations() {

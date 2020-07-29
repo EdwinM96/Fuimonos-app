@@ -61,7 +61,13 @@ class ChangePasswordViewModel(private val loginRepository: ILoginRepository) : B
             checkIf { this != newPassword.value } set PASS_NOT_EQUALS
         }
 
-        val validations = currentPasswordVal + newPasswordVal + confirmPasswordVal
+        val validations = mutableListOf<ChangePasswordValidation>()
+
+        validations.addAll( currentPasswordVal + newPasswordVal + confirmPasswordVal)
+
+        if(validations.contains(PASS_NOT_EQUALS)) {
+            validations.remove(EMPTY_NEW_PASS)
+        }
 
         if(validations.isNotEmpty()) {
             block.invoke(validations)

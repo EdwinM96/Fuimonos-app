@@ -27,9 +27,6 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
 
     override fun setupSubscription() {
         super.setupSubscription()
-        mViewModel.onShowProgress.observe(this, Observer {
-            showProgress(it)
-        })
         mViewModel.onShowLoginScreen.observe(this, Observer {
             showLogin()
         })
@@ -54,16 +51,6 @@ class SplashActivity : BaseViewModelActivity<SplashViewModel>() {
                 Intent.FLAG_ACTIVITY_CLEAR_TOP
         startActivity(intent)
         finish()
-    }
-
-    private fun showProgress(enable: Boolean) {
-        val visibility = if(enable) {
-            View.VISIBLE
-        } else {
-            View.GONE
-        }
-
-        progressBar.visibility = visibility
     }
 
 }
